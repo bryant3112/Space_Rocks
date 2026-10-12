@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dacwpsnnrwgv8"]
+
+[ext_resource type="Script" uid="uid://c6nsq8324fyt0" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bjxqj08mykhut" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dn5linjaawimb" path="res://enemy.tscn" id="2_h2yge"]
+
+[node name="Main" type="Node2D" unique_id=1543343391]
+script = ExtResource("1_0xm2m")
+enemy_scene = ExtResource("2_h2yge")
+
+[node name="Player" parent="." unique_id=123535631 instance=ExtResource("1_ig7tw")]
+position = Vector2(576, 324)
+gravity_scale = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1794452329]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=289582564]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 81.0
+offset_bottom = 43.0
+text = "Score: 0"
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer" unique_id=1833367281]
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 77.0
+offset_bottom = 73.0
+text = "Lives: 3"
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer" unique_id=893252390]
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 592.0
+offset_bottom = 273.0
+text = "GAME OVER"
+
+[node name="StartButton" type="Button" parent="CanvasLayer" unique_id=966423798]
+offset_left = 520.0
+offset_top = 400.0
+offset_right = 576.0
+offset_bottom = 431.0
+text = "START"
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]

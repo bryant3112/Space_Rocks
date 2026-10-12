@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bjxqj08mykhut"]
+
+[ext_resource type="Texture2D" uid="uid://cx851fwh573k2" path="res://Assets-Space/player_ship.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dy7scicdpagtv" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dm2uleqn3yqcs" path="res://Assets-Space/shield_gold.png" id="3_i3pqv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jxj5q"]
+radius = 30.0
+height = 100.0
+
+[node name="Player" type="RigidBody2D" unique_id=123535631]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1970770806]
+shape = SubResource("CapsuleShape2D_jxj5q")
+
+[node name="PlayerShip" type="Sprite2D" parent="." unique_id=1605381416]
+texture = ExtResource("1_4flbx")
+
+[node name="Shield" type="Sprite2D" parent="." unique_id=1210370432]
+texture = ExtResource("3_i3pqv")
+
+[node name="Timer" type="Timer" parent="." unique_id=2001826314]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
